@@ -7,9 +7,7 @@ function index(req, res) {
 }
 
 function filter(req, res) {
-    let state = req.query.state;
-    let name = req.query.name;
-    let readyToEat = req.query.readyToEat;
+    let { state, name, readyToEat } = req.query  
 
     const filtered = meats
         .filter(item => (name ? item.name.includes(name) : item))

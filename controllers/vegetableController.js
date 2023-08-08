@@ -12,11 +12,9 @@ function show(req, res) {
 }
 
 function filter(req, res) {
-    let color = req.query.color;
-    let name = req.query.name;
-    let readyToEat = req.query.readyToEat;
+    let { color, name, readyToEat } = req.query  
 
-    const filtered = vegetables
+    const filtered = vegetables 
         .filter(item => (name ? item.name.includes(name) : item))
         .filter(item => (color ? item.color.includes(color) : item))
         .filter(item =>
