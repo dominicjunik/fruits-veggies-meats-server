@@ -16,7 +16,7 @@ function filter(req, res) {
       readyToEat ? item.readyToEat === JSON.parse(readyToEat) : item
     );
 
-  res.send(filtered);
+    res.render('./fruits/Filter', { filtered })
 }
 
 
