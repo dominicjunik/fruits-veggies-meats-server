@@ -18,6 +18,9 @@ router.get('/new', fruitController.new)
 // "filter" route     //   localhost:8080/fruits/filter
 router.get('/filter', fruitController.filter)
 
+//create route
+router.post('/', fruitController.create)
+
 // "show" route      //   localhost:8080/fruits/:indexOfFruit
 router.get('/:indexOfFruit', fruitController.show)
 

@@ -30,5 +30,12 @@ module.exports.new = (req, res) => {
     res.render('fruits/New')
 }
 
+// POST /fruits
+module.exports.create = (req, res) => {
+    console.log('POST /fruits')
+    console.log(req.body) // <- should contain our form data
+    res.send('POST /fruits')
+}
+
 // because new is a keyword we take the export from the bottom and add it to each of the lines and change the 
 // functions into arrow functions
