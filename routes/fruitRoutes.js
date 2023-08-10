@@ -19,6 +19,7 @@ router.get('/new', fruitController.new)
 router.delete('/:indexOfFruit', fruitController.destroy)
 
 //  "update" route
+router.put('/:indexOfFruit', fruitController.update)
 
 //  "filter" route     //   localhost:8080/fruits/filter
 router.get('/filter', fruitController.filter)
