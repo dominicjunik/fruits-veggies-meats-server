@@ -8,7 +8,7 @@ export default function New() {
     return (
         <div>
             <h1>New</h1>
-            <form action="/fruits" method="POST">
+            <form action="/vegetables" method="POST">
 
                 <label htmlFor="name">Name:</label> <br />
                 <input type='text' id='name' name='name'></input> <br /><br /><br />

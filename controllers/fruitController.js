@@ -58,7 +58,6 @@ module.exports.create = (req, res) => {
 // functions into arrow functions
 
 //DELETE /fruits/:indexOfFruits
-
 module.exports.destroy = (req, res) => {
   console.log('DELETE /fruits/:indexOfFruits')
   // fruits.findIndex((fruit, index) => index == req.params.indexOfFruit)

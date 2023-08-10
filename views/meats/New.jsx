@@ -8,13 +8,13 @@ export default function New() {
     return (
         <div>
             <h1>New</h1>
-            <form action="/fruits" method="POST">
+            <form action="/meats" method="POST">
 
                 <label htmlFor="name">Name:</label> <br />
                 <input type='text' id='name' name='name'></input> <br /><br /><br />
 
-                <label htmlFor='color'>Color:</label><br />
-                <input type='text' id='color' name='color'></input> <br /><br /><br />
+                <label htmlFor='state'>State:</label><br />
+                <input type='text' id='state' name='state'></input> <br /><br /><br />
 
                 <label htmlFor='ready'>Ready to Eat:</label>
                 <input type='checkbox'id='ready' name='readyToEat'></input><br /><br /><br />
