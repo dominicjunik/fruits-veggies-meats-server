@@ -1,12 +1,12 @@
 // Bring in our fruit data
 const fruits = require('../models/fruits')
 
-// The callback function from the "index" route 
-function index(req, res) {
+// GET /fruits 
+module.exports.index = (req, res) => {
     res.render('./fruits/Index', { fruits })
 }
 
-function filter(req, res) {
+module.exports.filter = (req, res) => {
   let { color, name, readyToEat } = req.query    
 
   const filtered = fruits
@@ -20,13 +20,15 @@ function filter(req, res) {
 }
 
 
-// The callback function from the "show" route
-function show(req, res) {
+// GET /fruits/:indexOfFruits
+module.exports.show = (req, res) => {
     res.render('./fruits/Show', {fruit: fruits[req.params.indexOfFruit]})
 }
 
-module.exports = {
-    index, 
-    show, 
-    filter
+// GET /fruits/new
+module.exports.new = (req, res) => {
+    res.render('fruits/New')
 }
+
+// because new is a keyword we take the export from the bottom and add it to each of the lines and change the 
+// functions into arrow functions
