@@ -7,21 +7,29 @@ const router = express.Router()
 // Bring in our controller logic
 const fruitController = require('../controllers/fruitController')
 
-// to organize routes  I.N.D.U.C.E.S (index, new, delete, update, create, edit, show)
+// to organize routes  I.N.D.U.C.E.S (index, new, destroy, update, create, edit, show)
 
 // "index" route      //   localhost:8080/fruits/
 router.get('/', fruitController.index)
 
-//  "create new" route   //   localhost:8080/fruits/new
+//  "new" route   //   localhost:8080/fruits/new
 router.get('/new', fruitController.new)
 
-// "filter" route     //   localhost:8080/fruits/filter
+//  "destroy" route
+router.delete('/:indexOfFruit', fruitController.destroy)
+
+//  "update" route
+
+//  "filter" route     //   localhost:8080/fruits/filter
 router.get('/filter', fruitController.filter)
 
-//create route
+//  "create" route
 router.post('/', fruitController.create)
 
-// "show" route      //   localhost:8080/fruits/:indexOfFruit
+//  "edit" route
+router.get('/:indexOfFruit/edit', fruitController.edit)
+
+//  "show" route      //   localhost:8080/fruits/:indexOfFruit
 router.get('/:indexOfFruit', fruitController.show)
 
 module.exports = router
