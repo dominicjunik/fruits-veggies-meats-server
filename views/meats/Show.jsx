@@ -11,7 +11,15 @@ function Show({meat, index}) {
 
             <form action={`/meats/${index}?_method=DELETE`} method='POST'>
                 <button>Remove</button>   
-            </form>            
+            </form>
+
+             <form action={`/meats/${index}/edit`}>
+                <button>Edit</button>
+            </form>   
+
+            <form action="/meats">
+                <button>Back</button>
+            </form>             
         </div>
     )
 }

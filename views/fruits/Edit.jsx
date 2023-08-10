@@ -22,6 +22,16 @@ export default function Edit({ fruit, index }) {
 
                 <button>Update</button>
             </form>
+
+            <form action={`/fruits/${index}`}>
+                <button>Back to Item</button>
+            </form>
+
+            <form action="/fruits">
+                <button>Back to Index</button>
+            </form>
+
+            
         </div>
     )
 }

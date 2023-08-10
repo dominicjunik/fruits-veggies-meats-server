@@ -22,7 +22,9 @@ export default function New() {
                 <button>Submit</button>
             </form>
             
-            
+            <form action="/fruits">
+                <button>Back</button>
+            </form>  
         </div>
     )
 }

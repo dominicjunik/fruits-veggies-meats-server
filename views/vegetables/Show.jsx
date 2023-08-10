@@ -11,6 +11,14 @@ function Show({vegetable, index}) {
 
             <form action={`/vegetables/${index}?_method=DELETE`} method='POST'>
                 <button>Remove</button>   
+            </form> 
+
+             <form action={`/vegetables/${index}/edit`}>
+                <button>Edit</button>
+            </form>   
+
+            <form action="/vegetables">
+                <button>Back</button>
             </form>            
         </div>
     )
