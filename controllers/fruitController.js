@@ -6,14 +6,22 @@ module.exports.index = (req, res) => {
     res.render('./fruits/Index', { fruits })
 }
 
+
+// GET /fruits/search
+module.exports.search = (req, res) => {
+  res.render('./fruits/Search')
+}
+
+// GET /fruits/filter
 module.exports.filter = (req, res) => {
   let { color, name, readyToEat } = req.query    
-
+  readyToEat = (readyToEat == 'on')
+  
   const filtered = fruits
     .filter(item => (name ? item.name.includes(name) : item))
     .filter(item => (color ? item.color.includes(color) : item))
     .filter(item =>
-      readyToEat ? item.readyToEat === JSON.parse(readyToEat) : item
+      readyToEat ? item.readyToEat.toString() === readyToEat.toString() : item
     );
 
     res.render('./fruits/Filter', { filtered })

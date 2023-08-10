@@ -9,7 +9,10 @@ function Index(props) {
             
             {props.fruits.map((fruit, i)=> <div key={i}><a href={`/fruits/${i}`}>{fruit.name}</a><br /></div>)}
 
-            
+            <form action="/fruits/search">
+                <button>Search</button>
+            </form>
+
             <form action="/fruits/new">
                 <button>New</button>
             </form>
