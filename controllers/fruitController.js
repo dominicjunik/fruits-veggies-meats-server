@@ -21,7 +21,7 @@ module.exports.filter = (req, res) => {
     .filter(item => (name ? item.name.includes(name) : item))
     .filter(item => (color ? item.color.includes(color) : item))
     .filter(item =>
-      readyToEat ? item.readyToEat.toString() === readyToEat.toString() : item
+      item.readyToEat.toString() === readyToEat.toString()
     );
 
     res.render('./fruits/Filter', { filtered })

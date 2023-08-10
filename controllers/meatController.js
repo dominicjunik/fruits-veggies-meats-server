@@ -6,19 +6,25 @@ module.exports.index = (req, res) => {
     res.render('./meats/Index', { meats })
 }
 
-module.exports.filter = (req, res) => {
-  let { state, name, readyToEat } = req.query    
-
-  const filtered = meats
-    .filter(item => (name ? item.name.includes(name) : item))
-    .filter(item => (state ? item.state.includes(state) : item))
-    .filter(item =>
-      readyToEat ? item.readyToEat === JSON.parse(readyToEat) : item
-    );
-
-    res.render('./meats/Filter', { filtered })
-}
-
+// GET /meats/search
+module.exports.search = (req, res) => {
+    res.render('./meats/Search')
+  }
+  
+  // GET /meats/filter
+  module.exports.filter = (req, res) => {
+    let { color, name, readyToEat } = req.query    
+    readyToEat = (readyToEat == 'on')
+    
+    const filtered = meats
+      .filter(item => (name ? item.name.includes(name) : item))
+      .filter(item => (color ? item.color.includes(color) : item))
+      .filter(item =>
+        item.readyToEat.toString() === readyToEat.toString()
+      );
+  
+      res.render('./meats/Filter', { filtered })
+  }
 
 // GET /meats/:indexOfFruits
 module.exports.show = (req, res) => {

@@ -6,18 +6,25 @@ module.exports.index = (req, res) => {
     res.render('./vegetables/Index', { vegetables })
 }
 
-module.exports.filter = (req, res) => {
-  let { color, name, readyToEat } = req.query    
-
-  const filtered = vegetables
-    .filter(item => (name ? item.name.includes(name) : item))
-    .filter(item => (color ? item.color.includes(color) : item))
-    .filter(item =>
-      readyToEat ? item.readyToEat === JSON.parse(readyToEat) : item
-    );
-
-    res.render('./vegetables/Filter', { filtered })
-}
+// GET /vegetables/search
+module.exports.search = (req, res) => {
+    res.render('./vegetables/Search')
+  }
+  
+  // GET /vegetables/filter
+  module.exports.filter = (req, res) => {
+    let { color, name, readyToEat } = req.query    
+    readyToEat = (readyToEat == 'on')
+    
+    const filtered = vegetables
+      .filter(item => (name ? item.name.includes(name) : item))
+      .filter(item => (color ? item.color.includes(color) : item))
+      .filter(item =>
+        item.readyToEat.toString() === readyToEat.toString() 
+      );
+  
+      res.render('./vegetables/Filter', { filtered })
+  }
 
 
 // GET /vegetables/:indexOfVegetable

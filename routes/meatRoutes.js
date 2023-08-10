@@ -24,6 +24,9 @@ router.put('/:indexOfMeat', meatController.update)
 //  "filter" route     //   localhost:8080/fruits/filter
 router.get('/filter', meatController.filter)
 
+//  "search" route
+router.get('/search', meatController.search)
+
 //  "create" route
 router.post('/', meatController.create)
 

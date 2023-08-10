@@ -8,6 +8,10 @@ function Index(props) {
             <p>Other foor catagories: <a href="/fruits">Fruits</a> <a href="/vegetables">Vegetables</a></p>
             {props.meats.map((meat, i)=> <div key={i}><a href={`/meats/${i}`}>{meat.name}</a><br /></div>)}
 
+            <form action="/meats/search">
+                <button>Search</button>
+            </form>
+
             <form action="/meats/new">
                 <button>New</button>
             </form>

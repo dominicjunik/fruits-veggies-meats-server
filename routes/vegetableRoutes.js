@@ -24,6 +24,9 @@ router.put('/:indexOfVegetable', vegetableController.update)
 //  "filter" route     //   localhost:8080/fruits/filter
 router.get('/filter', vegetableController.filter)
 
+//  "search" route
+router.get('/search', vegetableController.search)
+
 //  "create" route
 router.post('/', vegetableController.create)
 
