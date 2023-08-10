@@ -22,7 +22,7 @@ app.engine('jsx', jsxEngine())
 // A middleware that formats the data into an object we can use on req.body
 // we had to use this because of the oldschool HTML form but eventually it will be JSON data
 // this has to go above our routes so we format our data first 
-app.use(express.urlencoded({ extended: false }))
+app.use(express.urlencoded({ extended: true }))
 
 // Connect our food routes to our express app
 app.use('/fruits', fruitRoutes)

@@ -16,7 +16,7 @@ export default function New() {
                 <input type='text' id='color' name='color'></input> <br /><br /><br />
 
                 <label htmlFor='ready'>Ready to Eat:</label> <br />
-                <input type='checkbox'id='ready' name='ready'></input><br /><br /><br />
+                <input type='checkbox'id='ready' name='readyToEat'></input><br /><br /><br />
 
                 <button>Submit</button>
             </form>
