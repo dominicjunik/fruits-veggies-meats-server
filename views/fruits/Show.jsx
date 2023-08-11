@@ -1,7 +1,7 @@
 import React from "react"
 
-function Show({fruit, index}) {
-    let { name, color, readyToEat } = fruit
+function Show({fruit}) {
+    let { name, color, readyToEat, _id } = fruit
     return(
         <div>
             <h1>Show</h1>
@@ -9,11 +9,11 @@ function Show({fruit, index}) {
             <p>Color: {color}</p>
             <p>Ready to eat: {readyToEat ? 'yes' : 'no'}</p> <br />
 
-            <form action={`/fruits/${index}?_method=DELETE`} method='POST'>
+            <form action={`/fruits/${_id}?_method=DELETE`} method='POST'>
                 <button>Remove</button>   
             </form>
 
-            <form action={`/fruits/${index}/edit`}>
+            <form action={`/fruits/${_id}/edit`}>
                 <button>Edit</button>
             </form>   
 
