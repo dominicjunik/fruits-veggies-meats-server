@@ -16,10 +16,10 @@ router.get('/', fruitController.index)
 router.get('/new', fruitController.new)
 
 //  "destroy" route
-router.delete('/:indexOfFruit', fruitController.destroy)
+router.delete('/:id', fruitController.destroy)
 
 //  "update" route
-router.put('/:indexOfFruit', fruitController.update)
+router.put('/:id', fruitController.update)
 
 //  "filter" route     //   localhost:8080/fruits/filter
 router.get('/filter', fruitController.filter)
@@ -31,7 +31,7 @@ router.get('/search', fruitController.search)
 router.post('/', fruitController.create)
 
 //  "edit" route
-router.get('/:indexOfFruit/edit', fruitController.edit)
+router.get('/:id/edit', fruitController.edit)
 
 //  "show" route      //   localhost:8080/fruits/:indexOfFruit
 router.get('/:id', fruitController.show)
