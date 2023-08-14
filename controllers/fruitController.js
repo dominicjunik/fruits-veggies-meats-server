@@ -1,16 +1,16 @@
-// Bring in our fruit data
+// Bring in our fruit data from prebuitl array
 let fruits = require('../models/fruits')
 
-
+//database data import
 const Fruit = require('../models/Fruit')
+
 // GET /fruits 
 module.exports.index = async (req, res) => {
   let fruits;
   
   try {
-      // fruits = await Fruit.find().sort( {"name": 1})
       // testing find params 
-      fruits = await Fruit.find(req.query)
+      fruits = await Fruit.find(req.query).sort( {"name": 1})
       // fruits = await Fruit.find({name: 'Pear'}) // -> finds all documents with name: "pear"
       // fruits = await Fruit.find({name: { $ne: 'Pear' } }) // finds all that $NotEqual "pear" 
       // fruits = await Fruit.find({}, { color: 0}) // -> finds all fruit data without colors NOTE: cannot do inclusion and exclusion at the same time
@@ -106,6 +106,9 @@ module.exports.create = async (req, res) => {
 
   try {
       let fruit = await Fruit.create(req.body)
+      // example of creating a local data set first then saving it 
+      // let fruit = new Fruit(req.body)
+      // fruit.save()
       console.log(fruit)
   } catch(err) {
       console.log('Failed to create a Fruit document: ', err)
@@ -144,4 +147,29 @@ module.exports.update = async (req, res) => {
   
 
  
+}
+
+// POST /fruits/seed
+module.exports.seed = async (req, res) => {
+
+  try {
+      await Fruit.deleteMany()
+      await Fruit.create(fruits) // [ {}, {}, {} ]
+  } catch(err) {
+      console.log(err.message)
+  }
+
+  res.redirect('/fruits')
+}
+
+// DELETE /fruits/clear
+module.exports.clear = async (req, res) => {
+
+  try {
+    await Fruit.deleteMany()
+  } catch(err) {
+    console.log(err.message)
+  }
+
+  res.redirect('/fruits')
 }

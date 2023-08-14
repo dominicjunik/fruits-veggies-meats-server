@@ -30,6 +30,8 @@ app.engine('jsx', jsxEngine())
 // give our form more HTTP methods to work with like DELETE and PUT
 app.use(methodOverride('_method'))
 
+// Look for static files (like css) in the public folder
+app.use(express.static('public'))
 
 // A middleware that formats the data into an object we can use on req.body
 // we had to use this because of the oldschool HTML form but eventually it will be JSON data
